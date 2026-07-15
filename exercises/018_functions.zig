@@ -25,6 +25,9 @@ pub fn main() void {
 // We're just missing a couple things. One thing we're NOT missing is the
 // keyword "pub", which is not needed here. Can you guess why?
 //
-??? deepThought() ??? {
+// deepThought does not need to be accessible to code outside of this file,
+// so we don't need to declare it as pub. main does -- it's the entry point
+// into this program, so we always declare it pub.
+fn deepThought() u8 {
     return 42; // Number courtesy Douglas Adams
 }

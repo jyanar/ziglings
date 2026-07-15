@@ -19,7 +19,11 @@ const std = @import("std");
 const MyNumberError = error{TooSmall};
 
 pub fn main() void {
-    var my_number: ??? = 5;
+    // NOTE! For error unions, the error always goes first. So you can do
+    //      my_number: MyNumberError!u32
+    // But you cannot do
+    //      my_number: u32!MyNumberError
+    var my_number: MyNumberError!u32 = 5;
 
     // Looks like my_number will need to either store a number OR
     // an error. Can you set the type correctly above?

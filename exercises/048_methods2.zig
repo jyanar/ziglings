@@ -17,6 +17,9 @@ const Elephant = struct {
     pub fn hasTail(self: *Elephant) bool {
         return (self.tail != null);
     }
+    // So two separate mechanisms here -- one to check whether the
+    // pointer exists, and another which -- if we actually attempt
+    // to grab it -- crashes the program
 
     pub fn visit(self: *Elephant) void {
         self.visited = true;
@@ -54,7 +57,7 @@ fn visitElephants(first_elephant: *Elephant) void {
 
         // This gets the next elephant or stops:
         // which method do we want here?
-        e = if (e.hasTail()) e.??? else break;
+        e = if (e.hasTail()) e.getTail() else break;
     }
 }
 

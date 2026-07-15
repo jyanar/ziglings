@@ -42,6 +42,15 @@ pub fn main() void {
     //
     // Feel free to run this program without adding Zump. What does
     // it do and why?
+    // If we comment out this v, then we get health and experience (which are
+    // both u32 printing the value 2863311530. If you format using hexademical
+    // "{x}" you get aaaaaaaa (the debug pattern for uninitialized mem)
+    chars[1] = Character{
+        .role = Role.bard,
+        .health = 100,
+        .gold = 10,
+        .experience = 20,
+    };
 
     // Printing all RPG characters in a loop:
     for (chars, 0..) |c, num| {
